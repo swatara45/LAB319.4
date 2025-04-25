@@ -133,4 +133,18 @@ router.delete("/class/:id", async (req, res) => {
   else res.send(result).status(200);
 });
 
+//PArt 2 Create a get route
+
+router.get(`/`, async (req, res) => {
+  try {
+    const collection = await db.collection(`grades`);
+    const grades = await collection.find({}).toArray(); // Fetch all grades
+    res.status(200).send(grades);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: `Failed to fetch grades` });
+  }
+});
+
+
 export default router;
