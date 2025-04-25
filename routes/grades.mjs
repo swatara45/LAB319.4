@@ -133,7 +133,7 @@ router.delete("/class/:id", async (req, res) => {
   else res.send(result).status(200);
 });
 
-//PArt 2 Create a get route
+//Part 2 Create a get route
 
 router.get(`/`, async (req, res) => {
   try {
